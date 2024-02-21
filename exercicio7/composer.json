@@ -1,0 +1,17 @@
+{
+    "name": "imply/exercicio2",
+    "autoload": {
+        "psr-4": {
+            "Imply\\Exercicio2\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ArthurDaCosta",
+            "email": "156153011+ArthurDaCosta@users.noreply.github.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "9.5.10"
+    }
+}
