@@ -22,6 +22,11 @@ Funcionalidade: Testar o método calcularJurosSimples($capital, $taxa, $tempo) d
         Quando eu calcular o juros simples com o método calcularJurosSimples($capital, $taxa, $tempo) da classe CalculadoraFinanceira
         Então o resultado deve ser 'Valores não podem ser negativos'
 
+    Cenário: Calcular juros simples com tempo sendo valor decimal
+        Dado que tenho um capital de 1000, uma taxa de 10% e um período de 5.5 meses
+        Quando eu calcular o juros simples com o método calcularJurosSimples($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 'Tempo deve ser um número inteiro'
+
 Funcionalidade: Testar o método calcularJurosCompostos($capital, $taxa, $tempo) da classe CalculadoraFinanceira
 
     Cenário: Calcular juros compostos
@@ -29,30 +34,61 @@ Funcionalidade: Testar o método calcularJurosCompostos($capital, $taxa, $tempo)
         Quando eu calcular o juros compostos com o método calcularJurosCompostos($capital, $taxa, $tempo) da classe CalculadoraFinanceira
         Então o resultado deve ser 1610.51
 
-    Cenário: Calcular juros compostos com números negativos
+    Cenário: Calcular juros compostos com valores iguais a zero
+        Dado que tenho um capital de 0, uma taxa de 0% e um período de 0
+        Quando eu calcular o juros compostos com o método calcularJurosCompostos($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 0
+
+Funcionalidade: Testar o método calcularJurosCompostos($capital, $taxa, $tempo) da classe CalculadoraFinanceira com argumentos inválidos
+
+    Cenário: Calcular juros compostos com valores string não numéricos
+        Dado que tenho um capital de 'a', uma taxa de 'a' e um período de 'a'
+        Quando eu calcular o juros compostos com o método calcularJurosCompostos($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 'Valores inválidos'
+
+    Cenário: Calcular juros compostos com valores negativos
         Dado que tenho um capital de -1000, uma taxa de -10% e um período de -5
         Quando eu calcular o juros compostos com o método calcularJurosCompostos($capital, $taxa, $tempo) da classe CalculadoraFinanceira
         Então o resultado deve ser 'Valor inválido'
 
-    Cenário: Calcular juros compostos com números decimais
-        Dado que tenho um capital de 1000.33, uma taxa de 10.33% e um período de 5.33
+    Cenário: Calcular juros compostos com tempo sendo valor decimal
+        Dado que tenho um capital de 1000, uma taxa de 10% e um período de 5.5
         Quando eu calcular o juros compostos com o método calcularJurosCompostos($capital, $taxa, $tempo) da classe CalculadoraFinanceira
-        Então o resultado deve ser 1616.51
+        Então o resultado deve ser 'Tempo deve ser um número inteiro'
 
 
-Funcionalidade: Testar o método calcularAmortizacao($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+Funcionalidade: Testar o método calcularAmortizacao($capital, $taxa, $tempo) da classe CalculadoraFinanceira com o tipo SAC
 
-Cenário: Calcular amortização
-    Dado que tenho um capital de 1000, uma taxa de 10% e um período de 5
-    Quando eu calcular a amortização com o método calcularAmortizacao($capital, $taxa, $tempo) da classe CalculadoraFinanceira
-    Então o resultado deve ser 200
+    Cenário: Calcular amortização com o tipo SAC
+        Dado que tenho um capital de 1000, uma taxa de 10%, um período de 10 meses e o tipo SAC 
+        Quando eu calcular a amortização com o método calcularAmortizacao($capital, $taxa, $tempo, $tipo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 200
 
-Cenário: Calcular amortização com números negativos
-    Dado que tenho um capital de -1000, uma taxa de -10% e um período de -5
-    Quando eu calcular a amortização com o método calcularAmortizacao($capital, $taxa, $tempo) da classe CalculadoraFinanceira
-    Então o resultado deve ser 'Valor inválido'
+Funcionalidade: Testar o método calcularAmortizacao($capital, $taxa, $tempo) da classe CalculadoraFinanceira com o tipo Price
 
-Cenário: Calcular amortização com números decimais
-    Dado que tenho um capital de 1000.33, uma taxa de 10.33% e um período de 5.33
-    Quando eu calcular a amortização com o método calcularAmortizacao($capital, $taxa, $tempo) da classe CalculadoraFinanceira
-    Então o resultado deve ser 200.07
+    Cenário: Calcular amortização com o tipo PRICE
+        Dado que tenho um capital de 1000, uma taxa de 10%, um período de 10 meses e o tipo Price
+        Quando eu calcular a amortização com o método calcularAmortizacao($capital, $taxa, $tempo, $tipo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 162.65
+
+Funcionalidade: Testar o método calcularAmortizacao($capital, $taxa, $tempo) da classe CalculadoraFinanceira com argumentos inválidos
+
+    Cenário: Calcular amortização com um tipo diferente de SAC e PRICE
+        Dado que tenho um capital de 1000, uma taxa de 10%, um período de 10 meses e o tipo 'teste'
+        Quando eu calcular a amortização com o método calcularAmortizacao($capital, $taxa, $tempo, $tipo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 'Tipo de Amortização Inválido'
+
+    Cenário: Calcular amortização com valores string não numéricos
+        Dado que tenho um capital de 'a', uma taxa de 'a', um período de 'a' e o tipo Price
+        Quando eu calcular a amortização com o método calcularAmortizacao($capital, $taxa, $tempo, $tipo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 'Valores Inválidos'
+
+    Cenário: Calcular amortização com valores negativos
+        Dado que tenho um capital de -1000, uma taxa de -10%, um período de -10 e o tipo SAC
+        Quando eu calcular a amortização com o método calcularAmortizacao($capital, $taxa, $tempo, $tipo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 'Valores não podem ser negativos'
+
+    Cenário: Calcular amortização com tempo sendo valor decimal
+        Dado que tenho um capital de 1000, uma taxa de 10%, um período de 10.5 e o tipo Price
+        Quando eu calcular a amortização com o método calcularAmortizacao($capital, $taxa, $tempo, $tipo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 'Tempo deve ser um número inteiro'
