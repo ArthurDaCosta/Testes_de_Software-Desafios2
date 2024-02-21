@@ -73,18 +73,58 @@ class CalculadoraFinanceiraTest extends TestCase
         $calculadora = new CalculadoraFinanceira();
         $this->assertEquals(
             [
-                'Total de Juros Pagos' => 100,
-                'Parcela de Amortização 1' => 120,
-                'Parcela de Amortização 2' => 120,
-                'Parcela de Amortização 3' => 120,
-                'Parcela de Amortização 4' => 120,
-                'Parcela de Amortização 5' => 120,
-                'Parcela de Amortização 6' => 120,
-                'Parcela de Amortização 7' => 120,
-                'Parcela de Amortização 8' => 120,
-                'Parcela de Amortização 9' => 120,
+                'Parcela de Amortização 1' => 100,
+                'Juros Mês 1' => 100,
+                'Parcela de Amortização 2' => 100,
+                'Juros Mês 2' => 90,
+                'Parcela de Amortização 3' => 100,
+                'Juros Mês 3' => 80,
+                'Parcela de Amortização 4' => 100,
+                'Juros Mês 4' => 70,
+                'Parcela de Amortização 5' => 100,
+                'Juros Mês 5' => 60,
+                'Parcela de Amortização 6' => 100,
+                'Juros Mês 6' => 50,
+                'Parcela de Amortização 7' => 100,
+                'Juros Mês 7' => 40,
+                'Parcela de Amortização 8' => 100,
+                'Juros Mês 8' => 30,
+                'Parcela de Amortização 9' => 100,
+                'Juros Mês 9' => 20,
+                'Parcela de Amortização 10' => 100,
+                'Juros Mês 10' => 10
             ],
             $calculadora->calcularAmortizacao(1000, 0.1, 10, 'SAC')
+        );
+    }
+
+    public function testCalcularAmortizacaoPrice()
+    {
+        $calculadora = new CalculadoraFinanceira();
+        $this->assertEquals(
+            [
+                'Parcela de Amortização 1' => 62.75,
+                'Juros Mês 1' => 100,
+                'Parcela de Amortização 2' => 69.02,
+                'Juros Mês 2' => 93.73,
+                'Parcela de Amortização 3' => 75.92,
+                'Juros Mês 3' => 86.82,
+                'Parcela de Amortização 4' => 83.51,
+                'Juros Mês 4' => 79.23,
+                'Parcela de Amortização 5' => 91.87,
+                'Juros Mês 5' => 70.88,
+                'Parcela de Amortização 6' => 101.05,
+                'Juros Mês 6' => 61.69,
+                'Parcela de Amortização 7' => 111.16,
+                'Juros Mês 7' => 51.59,
+                'Parcela de Amortização 8' => 122.27,
+                'Juros Mês 8' => 40.47,
+                'Parcela de Amortização 9' => 134.5,
+                'Juros Mês 9' => 28.25,
+                'Parcela de Amortização 10' => 147.95,
+                'Juros Mês 10' => 14.8
+            ],
+            $calculadora->calcularAmortizacao(1000, 0.1, 10, 'Price')
         );
     }
 }

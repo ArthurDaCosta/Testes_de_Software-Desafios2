@@ -1,51 +1,54 @@
-Funcionalidade: Testar a classe MinhaClasseAvancado
+Funcionalidade: Testar o método somar($a, $b) da classe MinhaClasseAvancado
 
-Cenário: Somar quando um dos elementos é zeros
-    Dado que tenho um número positivo e um zero(5, 0)
-    Quando eu somar os elementos com o método somar($a, $b) da classe MinhaClasseAvancado
-    Então o resultado deve ser 5
+    Cenário: Somar quando um dos elementos é zeros
+        Dado que tenho um número positivo e um zero(5, 0)
+        Quando eu somar os elementos com o método somar($a, $b) da classe MinhaClasseAvancado
+        Então o resultado deve ser 5
 
-Cenário: Somar quando um dos elementos é decimal
-    Dado que tenho um número positivo e um decimal(5, 0.33)
-    Quando eu somar os elementos com o método somar($a, $b) da classe MinhaClasseAvancado
-    Então o resultado deve ser 5.33
+    Cenário: Somar quando um dos elementos é decimal
+        Dado que tenho um número positivo e um decimal(5, 0.33)
+        Quando eu somar os elementos com o método somar($a, $b) da classe MinhaClasseAvancado
+        Então o resultado deve ser 5.33
 
-Cenário: Somar quando um dos elementos é uma string não numérica
-    Dado que tenho um número positivo e uma string('oi', 3)
-    Quando eu somar os elementos com o método somar($a, $b) da classe MinhaClasseAvancado
-    Então o resultado deve ser 'Valor inválido'
+    Cenário: Somar quando um dos elementos é uma string não numérica
+        Dado que tenho um número positivo e uma string('oi', 3)
+        Quando eu somar os elementos com o método somar($a, $b) da classe MinhaClasseAvancado
+        Então o resultado deve ser 'Valor inválido'
 
-Cenário: Somar quando um dos elementos é um booleano
-    Dado que tenho um número positivo e um booleano(true, 3)
-    Quando eu somar os elementos com o método somar($a, $b) da classe MinhaClasseAvancado
-    Então o resultado deve ser 'Valor inválido'
+    Cenário: Somar quando um dos elementos é um booleano
+        Dado que tenho um número positivo e um booleano(true, 3)
+        Quando eu somar os elementos com o método somar($a, $b) da classe MinhaClasseAvancado
+        Então o resultado deve ser 'Valor inválido'
 
-Cenário: Somar quando um dos elementos é null
-    Dado que tenho um número positivo e um null(5, null)
-    Quando eu somar os elementos com o método somar($a, $b) da classe MinhaClasseAvancado
-    Então o resultado deve ser 'Valor inválido'
+    Cenário: Somar quando um dos elementos é null
+        Dado que tenho um número positivo e um null(5, null)
+        Quando eu somar os elementos com o método somar($a, $b) da classe MinhaClasseAvancado
+        Então o resultado deve ser 'Valor inválido'
 
-Cenário: Subtrair quando um dos elementos é zeros
-    Dado que tenho um número positivo e um zero(5, 0)
-    Quando eu subtrair os elementos com o método subtrair($a, $b) da classe MinhaClasseAvancado
-    Então o resultado deve ser 5
 
-Cenário: Subtrair quando um dos elementos é decimal
-    Dado que tenho um número positivo e um decimal(5, 0.33)
-    Quando eu subtrair os elementos com o método subtrair($a, $b) da classe MinhaClasseAvancado
-    Então o resultado deve ser 4.67
+Funcionalidade: Testar o método subtrair($a, $b) da classe MinhaClasseAvancado
 
-Cenário: Subtrair quando um dos elementos é uma string não numérica
-    Dado que tenho um número positivo e uma string('oi', 3)
-    Quando eu subtrair os elementos com o método subtrair($a, $b) da classe MinhaClasseAvancado
-    Então o resultado deve ser 'Valor inválido'
+    Cenário: Subtrair quando um dos elementos é zeros
+        Dado que tenho um número positivo e um zero(5, 0)
+        Quando eu subtrair os elementos com o método subtrair($a, $b) da classe MinhaClasseAvancado
+        Então o resultado deve ser 5
 
-Cenário: Subtrair quando um dos elementos é um booleano
-    Dado que tenho um número positivo e um booleano(true, 3)
-    Quando eu subtrair os elementos com o método subtrair($a, $b) da classe MinhaClasseAvancado
-    Então o resultado deve ser 'Valor inválido'
+    Cenário: Subtrair quando um dos elementos é decimal
+        Dado que tenho um número positivo e um decimal(5, 0.33)
+        Quando eu subtrair os elementos com o método subtrair($a, $b) da classe MinhaClasseAvancado
+        Então o resultado deve ser 4.67
 
-Cenário: Subtrair quando um dos elementos é null
-    Dado que tenho um número positivo e um null(5, null)
-    Quando eu subtrair os elementos com o método subtrair($a, $b) da classe MinhaClasseAvancado
-    Então o resultado deve ser 'Valor inválido'
+    Cenário: Subtrair quando um dos elementos é uma string não numérica
+        Dado que tenho um número positivo e uma string('oi', 3)
+        Quando eu subtrair os elementos com o método subtrair($a, $b) da classe MinhaClasseAvancado
+        Então o resultado deve ser 'Valor inválido'
+
+    Cenário: Subtrair quando um dos elementos é um booleano
+        Dado que tenho um número positivo e um booleano(true, 3)
+        Quando eu subtrair os elementos com o método subtrair($a, $b) da classe MinhaClasseAvancado
+        Então o resultado deve ser 'Valor inválido'
+
+    Cenário: Subtrair quando um dos elementos é null
+        Dado que tenho um número positivo e um null(5, null)
+        Quando eu subtrair os elementos com o método subtrair($a, $b) da classe MinhaClasseAvancado
+        Então o resultado deve ser 'Valor inválido'

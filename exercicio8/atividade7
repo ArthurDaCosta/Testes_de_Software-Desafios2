@@ -1,21 +1,52 @@
-Funcionalidade: Testar a classe CalculadoraFinanceira
+Funcionalidade: Testar o método calcularJurosSimples($capital, $taxa, $tempo) da classe CalculadoraFinanceira
 
-Cenário: Capitalizar uma string vazia
-    Dado que tenho uma string vazia(' ')
-    Quando eu capitalizar a string vazia com o método capitalizeString() da classe StringManipulator
-    Então o resultado deve ser ' '
+    Cenário: Calcular juros simples
+        Dado que tenho um capital de 1000, uma taxa de 10% e um período de 5
+        Quando eu calcular o juros simples com o método calcularJurosSimples($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 500
 
-Cenário: Concatenar duas strings com espaços em branco
-    Dado que tenho duas strings com espaços em branco('teste 1',' teste 2')
-    Quando eu concatenar as strings com o método concatenateStrings() da classe StringManipulator
-    Então o resultado deve ser 'teste 1 teste 2'
+    Cenário: Calcular juros simples com números negativos
+        Dado que tenho um capital de -1000, uma taxa de -10% e um período de -5
+        Quando eu calcular o juros simples com o método calcularJurosSimples($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 'Valor inválido'
 
-Cenário: Contar as vogais da uma string com vogais maiúsculas e minúsculas
-    Dado que tenho uma string com vogais maiúsculas e minúsculas('TestE')
-    Quando eu contar as vogais da string com o método countVowels() da classe StringManipulator
-    Então o resultado deve ser 2
+    Cenário: Calcular juros simples com números decimais
+        Dado que tenho um capital de 1000.33, uma taxa de 10.33% e um período de 5.33
+        Quando eu calcular o juros simples com o método calcularJurosSimples($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 533.17
 
-Cenário: Contar as vogais de uma string sem vogais
-    Dado que tenho uma string sem vogais('tst')
-    Quando eu contar as vogais da string com o método countVowels() da classe StringManipulator
-    Então o resultado deve ser 0
+
+Funcionalidade: Testar o método calcularJurosCompostos($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+
+    Cenário: Calcular juros compostos
+        Dado que tenho um capital de 1000, uma taxa de 10% e um período de 5
+        Quando eu calcular o juros compostos com o método calcularJurosCompostos($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 1610.51
+
+    Cenário: Calcular juros compostos com números negativos
+        Dado que tenho um capital de -1000, uma taxa de -10% e um período de -5
+        Quando eu calcular o juros compostos com o método calcularJurosCompostos($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 'Valor inválido'
+
+    Cenário: Calcular juros compostos com números decimais
+        Dado que tenho um capital de 1000.33, uma taxa de 10.33% e um período de 5.33
+        Quando eu calcular o juros compostos com o método calcularJurosCompostos($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 1616.51
+
+
+Funcionalidade: Testar o método calcularAmortizacao($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+
+Cenário: Calcular amortização
+    Dado que tenho um capital de 1000, uma taxa de 10% e um período de 5
+    Quando eu calcular a amortização com o método calcularAmortizacao($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+    Então o resultado deve ser 200
+
+Cenário: Calcular amortização com números negativos
+    Dado que tenho um capital de -1000, uma taxa de -10% e um período de -5
+    Quando eu calcular a amortização com o método calcularAmortizacao($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+    Então o resultado deve ser 'Valor inválido'
+
+Cenário: Calcular amortização com números decimais
+    Dado que tenho um capital de 1000.33, uma taxa de 10.33% e um período de 5.33
+    Quando eu calcular a amortização com o método calcularAmortizacao($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+    Então o resultado deve ser 200.07

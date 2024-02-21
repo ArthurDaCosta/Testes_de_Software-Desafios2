@@ -32,15 +32,36 @@ class CalculadoraFinanceira
                 throw new Exception('Valores Inválidos');
             }
 
+            if ($capital < 0 || $taxa < 0 || $tempo < 0) {
+                throw new Exception('Valores Inválidos');
+            }
+
+            if ($tipo != 'SAC' && $tipo != 'Price') {
+                throw new Exception('Tipo de Amortização Inválido');
+            }
+
+            $capitalAtual = $capital;
+
             if ($tipo == 'SAC') {
-                $amortizacao['Total de Juros Pagos'] = $capital / $tempo;
-                for ($i = 1; $i < $tempo; $i++) {
-                    $amortizacao["Parcela de Amortização $i"] = $amortizacao['Total de Juros Pagos'] + ($capital * $taxa);
+                for ($i = 1; $i <= $tempo; $i++) {
+                    $amortizacao["Parcela de Amortização $i"] = $capital / $tempo;
+                    $juros = $capitalAtual * $taxa;
+                    $amortizacao["Juros Mês $i"] = $juros;
+                    $capitalAtual -= $amortizacao["Parcela de Amortização $i"];
                 }
             } elseif ($tipo == 'Price') {
-                $amortizacao = $capital * ($taxa / (1 - pow((1 + $taxa), -$tempo)));
-            } else {
-                throw new Exception('Tipo de Amortização Inválido');
+                $parcela = $capital * (pow((1+$taxa), $tempo) * $taxa) / (pow((1+$taxa), $tempo) - 1);
+                $montante = $capital * pow((1 + $taxa), $tempo);
+                for ($i = 1; $i <= $tempo; $i++) {
+                    $juros = $capitalAtual * $taxa;
+                    $amortizacao["Parcela de Amortização $i"] = $parcela - $juros;
+                    $amortizacao["Juros Mês $i"] = $juros;
+                    $capitalAtual -= $amortizacao["Parcela de Amortização $i"];
+                }
+            }
+
+            foreach ($amortizacao as $key => $value) {
+                $amortizacao[$key] = round($value, 2);
             }
 
             return $amortizacao;
