@@ -1,0 +1,101 @@
+Funcionalidade: Testar a classe ListaNumérica
+
+Cenário: Somar uma lista vazia
+    Dado que tenho uma lista vazia([])
+    Quando eu somar os elementos da lista com o método somarElementos(array $lista) da classe ListaNumérica
+    Então o resultado deve ser 0
+
+Cenário: Somar uma lista com números positivos
+    Dado que tenho uma lista com números positivos([1, 2, 3])
+    Quando eu somar os elementos da lista com o método somarElementos(array $lista) da classe ListaNumérica
+    Então o resultado deve ser 6
+
+Cenário: Somar uma lista com números negativos
+    Dado que tenho uma lista com números negativos([-1, -2, -3])
+    Quando eu somar a os elementos da lista com o método somarElementos(array $lista) da classe ListaNumérica
+    Então o resultado deve ser -6
+
+Cenário: Somar uma lista zeros
+    Dado que tenho uma lista com zeros([0, 0, 0])
+    Quando eu somar os elementos da lista com o método somarElementos(array $lista) da classe ListaNumérica
+    Então o resultado deve ser 0
+
+Cenário: Encontrar o maior elemento de uma lista vazia
+    Dado que tenho uma lista vazia([])
+    Quando eu encontrar o maior elemento da lista com o método encontrarMaiorElemento(array $lista) da classe ListaNumérica
+    Então o resultado deve ser 'Lista Vazia'
+
+Cenário: Encontrar o maior elemento de uma lista com números positivos
+    Dado que tenho uma lista com números positivos([1, 2, 3])
+    Quando eu encontrar o maior elemento da lista com o método encontrarMaiorElemento(array $lista) da classe ListaNumérica
+    Então o resultado deve ser 3
+
+Cenário: Encontrar o maior elemento de uma lista com números negativos
+    Dado que tenho uma lista com números negativos([-1, -2, -3])
+    Quando eu encontrar o maior elemento da lista com o método encontrarMaiorElemento(array $lista) da classe ListaNumérica
+    Então o resultado deve ser -1
+
+Cenário: Encontrar o maior elemento de uma lista com zeros
+    Dado que tenho uma lista com zeros([0, 0, 0])
+    Quando eu encontrar o maior elemento da lista com o método encontrarMaiorElemento(array $lista) da classe ListaNumérica
+    Então o resultado deve ser 0
+
+Cenário: Encontrar o menor elemento de uma lista vazia
+    Dado que tenho uma lista vazia([])
+    Quando eu encontrar o menor elemento da lista com o método encontrarMenorElemento(array $lista) da classe ListaNumérica
+    Então o resultado deve ser 'Lista Vazia'
+
+Cenário: Encontrar o menor elemento de uma lista com números positivos
+    Dado que tenho uma lista com números positivos([1, 2, 3])
+    Quando eu encontrar o menor elemento da lista com o método encontrarMenorElemento(array $lista) da classe ListaNumérica
+    Então o resultado deve ser 1
+
+Cenário: Encontrar o menor elemento de uma lista com números negativos
+    Dado que tenho uma lista com números negativos([-1, -2, -3])
+    Quando eu encontrar o menor elemento da lista com o método encontrarMenorElemento(array $lista) da classe ListaNumérica
+    Então o resultado deve ser -3
+
+Cenário: Encontrar o menor elemento de uma lista com zeros
+    Dado que tenho uma lista com zeros([0, 0, 0])
+    Quando eu encontrar o menor elemento da lista com o método encontrarMenorElemento(array $lista) da classe ListaNumérica
+    Então o resultado deve ser 0
+
+Cenário: Ordenar uma lista vazia
+    Dado que tenho uma lista vazia
+    Quando eu ordenar a lista com o método ordenarElementos(array $lista) da classe ListaNumérica
+    Então o resultado deve ser []
+
+Cenário: Ordenar uma lista com números positivos
+    Dado que tenho uma lista com números positivos([3, 2, 1])
+    Quando eu ordenar a lista com o método ordenarElementos(array $lista) da classe ListaNumérica
+    Então o resultado deve ser [1,2,3]
+
+Cenário: Ordenar uma lista com números negativos
+    Dado que tenho uma lista com números negativos([-3, -2, -1])
+    Quando eu ordenar a lista com o método ordenarElementos(array $lista) da classe ListaNumérica
+    Então o resultado deve ser [-3,-2,-1]
+
+Cenário: Ordenar uma lista com zeros
+    Dado que tenho uma lista com zeros([0,0,0])
+    Quando eu ordenar a lista com o método ordenarElementos(array $lista) da classe ListaNumérica
+    Então o resultado deve ser [0,0,0]
+
+Cenário: Filtrar os números pares de uma lista vazia
+    Dado que tenho uma lista vazia([])
+    Quando eu filtrar os números pares da lista com o método filtrarNumerosPares(array $lista) da classe ListaNumérica
+    Então o resultado deve ser []
+
+Cenário: Filtrar os números pares de uma lista com números positivos
+    Dado que tenho uma lista com números positivos([1,2,3])
+    Quando eu filtrar os números pares da lista com o método filtrarNumerosPares(array $lista) da classe ListaNumérica
+    Então o resultado deve ser [2]
+
+Cenário: Filtrar os números pares de uma lista com números negativos
+    Dado que tenho uma lista com números negativos([-1,-2,-3])
+    Quando eu filtrar os números pares da lista com o método filtrarNumerosPares(array $lista) da classe ListaNumérica
+    Então o resultado deve ser [-2]
+
+Cenário: Filtrar os números pares de uma lista com zeros
+    Dado que tenho uma lista com zeros([0,0,0])
+    Quando eu filtrar os números pares da lista com o método filtrarNumerosPares(array $lista) da classe ListaNumérica
+    Então o resultado deve ser [0, 0, 0]
