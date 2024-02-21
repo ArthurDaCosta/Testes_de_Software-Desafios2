@@ -4,25 +4,53 @@ class CalculadoraFinanceira
 {
     public function calcularJurosSimples($capital, $taxa, $tempo)
     {
-        if (!is_numeric($capital) || !is_numeric($taxa) || !is_numeric($tempo) || $capital < 0 || $taxa < 0 || $tempo < 0) {
-            return "Valores Inválidos";
+        try {
+            if (!is_numeric($capital) || !is_numeric($taxa) || !is_numeric($tempo)) {
+                throw new Exception('Valores Inválidos');
+            }
+
+            if ($capital < 0 || $taxa < 0 || $tempo < 0) {
+                throw new Exception('Valores não podem ser negativos');
+            }
+
+            if (!is_int($tempo)) {
+                throw new Exception('Tempo deve ser um número inteiro');
+            }
+
+            $juros = $capital * $taxa * $tempo;
+
+            return round($juros, 2);
+
+        } catch (Exception $e) {
+            return $e->getMessage();
         }
 
-        $juros = $capital * $taxa * $tempo;
-
-        return $juros;
     }
 
     public function calcularJurosCompostos($capital, $taxa, $tempo)
     {
-        if (!is_numeric($capital) || !is_numeric($taxa) || !is_numeric($tempo) || $capital < 0 || $taxa < 0 || $tempo < 0) {
-            return "Valores Inválidos";
+        try {
+            if (!is_numeric($capital) || !is_numeric($taxa) || !is_numeric($tempo)) {
+                throw new Exception('Valores Inválidos');
+            }
+
+            if ($capital < 0 || $taxa < 0 || $tempo < 0) {
+                throw new Exception('Valores não podem ser negativos');
+            }
+
+            if (!is_int($tempo)) {
+                throw new Exception('Tempo deve ser um número inteiro');
+            }
+
+            $montante = $capital * pow((1 + $taxa), $tempo);
+            $juros = $montante - $capital;
+
+            return round($juros, 2);
+
+        } catch (Exception $e) {
+            return $e->getMessage();
         }
 
-        $montante = $capital * pow((1 + $taxa), $tempo);
-        $juros = $montante - $capital;
-
-        return round($juros, 2);
     }
 
     public function calcularAmortizacao($capital, $taxa, $tempo, $tipo)
@@ -33,7 +61,11 @@ class CalculadoraFinanceira
             }
 
             if ($capital < 0 || $taxa < 0 || $tempo < 0) {
-                throw new Exception('Valores Inválidos');
+                throw new Exception('Valores não podem ser negativos');
+            }
+
+            if (!is_int($tempo)) {
+                throw new Exception('Tempo deve ser um número inteiro');
             }
 
             if ($tipo != 'SAC' && $tipo != 'Price') {
@@ -51,7 +83,6 @@ class CalculadoraFinanceira
                 }
             } elseif ($tipo == 'Price') {
                 $parcela = $capital * (pow((1+$taxa), $tempo) * $taxa) / (pow((1+$taxa), $tempo) - 1);
-                $montante = $capital * pow((1 + $taxa), $tempo);
                 for ($i = 1; $i <= $tempo; $i++) {
                     $juros = $capitalAtual * $taxa;
                     $amortizacao["Parcela de Amortização $i"] = $parcela - $juros;
@@ -69,6 +100,7 @@ class CalculadoraFinanceira
         } catch (Exception $e) {
             return $e->getMessage();
         }
+
     }
 
 }

@@ -1,20 +1,26 @@
 Funcionalidade: Testar o método calcularJurosSimples($capital, $taxa, $tempo) da classe CalculadoraFinanceira
 
     Cenário: Calcular juros simples
-        Dado que tenho um capital de 1000, uma taxa de 10% e um período de 5
+        Dado que tenho um capital de 1000, uma taxa de 20% e um período de 10 meses
         Quando eu calcular o juros simples com o método calcularJurosSimples($capital, $taxa, $tempo) da classe CalculadoraFinanceira
         Então o resultado deve ser 500
 
-    Cenário: Calcular juros simples com números negativos
-        Dado que tenho um capital de -1000, uma taxa de -10% e um período de -5
+    Cenário: Calcular juros simples com valores iguais a zero
+        Dado que tenho um capital de 0, uma taxa de 0% e um período de 0 meses
         Quando eu calcular o juros simples com o método calcularJurosSimples($capital, $taxa, $tempo) da classe CalculadoraFinanceira
-        Então o resultado deve ser 'Valor inválido'
+        Então o resultado deve ser 0
 
-    Cenário: Calcular juros simples com números decimais
-        Dado que tenho um capital de 1000.33, uma taxa de 10.33% e um período de 5.33
+Funcionalidade: Testar o método calcularJurosSimples($capital, $taxa, $tempo) da classe CalculadoraFinanceira com argumentos inválidos
+
+    Cenário: Calcular juros simples com valores string não numéricos
+        Dado que tenho um capital de 'a', uma taxa de 'a' e um período de 'a'
         Quando eu calcular o juros simples com o método calcularJurosSimples($capital, $taxa, $tempo) da classe CalculadoraFinanceira
-        Então o resultado deve ser 533.17
+        Então o resultado deve ser 'Valores inválidos'
 
+    Cenário: Calcular juros simples com valores negativos
+        Dado que tenho um capital de -1000, uma taxa de -10% e um período de -10 meses
+        Quando eu calcular o juros simples com o método calcularJurosSimples($capital, $taxa, $tempo) da classe CalculadoraFinanceira
+        Então o resultado deve ser 'Valores não podem ser negativos'
 
 Funcionalidade: Testar o método calcularJurosCompostos($capital, $taxa, $tempo) da classe CalculadoraFinanceira
 
