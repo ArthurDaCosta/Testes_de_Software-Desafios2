@@ -1,2 +1,5 @@
-Funcionalidade: Testar a classe MyClass através de Mocks
+Funcionalidade: testar o método addMethod do mock classe MyClass
+
+    Cenário: Criar um mock da Classe MyClass e adicionar um método a ela
+        Dado que
 
