@@ -9,8 +9,8 @@ class CalculadoraFinanceira
                 throw new Exception('Valores Inválidos');
             }
 
-            if ($capital < 0 || $taxa < 0 || $tempo < 0) {
-                throw new Exception('Valores não podem ser negativos');
+            if ($capital <= 0 || $taxa <= 0 || $tempo <= 0) {
+                throw new Exception('Valores não podem ser iguais ou menores que zero');
             }
 
             if (!is_int($tempo)) {
@@ -34,8 +34,8 @@ class CalculadoraFinanceira
                 throw new Exception('Valores Inválidos');
             }
 
-            if ($capital < 0 || $taxa < 0 || $tempo < 0) {
-                throw new Exception('Valores não podem ser negativos');
+            if ($capital <= 0 || $taxa <= 0 || $tempo <= 0) {
+                throw new Exception('Valores não podem ser iguais ou menores que zero');
             }
 
             if (!is_int($tempo)) {
@@ -60,8 +60,8 @@ class CalculadoraFinanceira
                 throw new Exception('Valores Inválidos');
             }
 
-            if ($capital < 0 || $taxa < 0 || $tempo < 0) {
-                throw new Exception('Valores não podem ser negativos');
+            if ($capital <= 0 || $taxa <= 0 || $tempo <= 0) {
+                throw new Exception('Valores não podem ser iguais ou menores que zero');
             }
 
             if (!is_int($tempo)) {

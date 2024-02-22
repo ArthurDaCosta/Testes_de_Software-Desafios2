@@ -9,30 +9,30 @@ class CalculadoraFinanceiraTest extends TestCase
     {
         $calculadora = new CalculadoraFinanceira();
         $this->assertEquals(2000    , $calculadora->calcularJurosSimples(1000, 0.2, 10));   //Juros simples
-        $this->assertEquals(0       , $calculadora->calcularJurosSimples(0, 0, 0));         //Capital inicial, taxa de juros e tempo zero
     }
 
     public function testCalcularJurosSimplesComValorInvalido()
     {
         $calculadora = new CalculadoraFinanceira();
-        $this->assertEquals('Valores Inválidos'                 , $calculadora->calcularJurosSimples('a', 'a', 'a'));       //Capital inicial, taxa de juros e tempo não numéricos
-        $this->assertEquals('Valores não podem ser negativos'   , $calculadora->calcularJurosSimples(-1000, -0.2, -10));    //Capital inicial, taxa de juros e tempo negativos
-        $this->assertEquals('Tempo deve ser um número inteiro'  , $calculadora->calcularJurosSimples(1000, 0.2, 10.5));     //Tempo não inteiro
+        $this->assertEquals('Valores Inválidos'                                 , $calculadora->calcularJurosSimples('a', 'a', 'a'));       //Capital inicial, taxa de juros e tempo não numéricos
+        $this->assertEquals('Valores não podem ser iguais ou menores que zero'  , $calculadora->calcularJurosSimples(-1000, -0.2, -10));    //Capital inicial, taxa de juros e tempo negativos
+        $this->assertEquals('Valores não podem ser iguais ou menores que zero'  , $calculadora->calcularJurosSimples(0, 0, 0));             //Capital inicial, taxa de juros e tempo zero
+        $this->assertEquals('Tempo deve ser um número inteiro'                  , $calculadora->calcularJurosSimples(1000, 0.2, 10.5));     //Tempo não inteiro
     }
 
     public function testCalcularJurosCompostos()
     {
         $calculadora = new CalculadoraFinanceira();
         $this->assertEquals(5191.74 , $calculadora->calcularJurosCompostos(1000, 0.2, 10)); //Juros compostos
-        $this->assertEquals(0       , $calculadora->calcularJurosCompostos(0, 0, 0));       //Capital inicial, taxa de juros e tempo zero
     }
 
     public function testCalcularJurosCompostosComValorInvalido()
     {
         $calculadora = new CalculadoraFinanceira();
-        $this->assertEquals('Valores Inválidos'                 , $calculadora->calcularJurosCompostos('a', 'a', 'a'));     //Capital inicial, taxa de juros e tempo string não numérica
-        $this->assertEquals('Valores não podem ser negativos'   , $calculadora->calcularJurosCompostos(-1000, -0.2, -10));  //Capital inicial, taxa de juros e tempo negativos
-        $this->assertEquals('Tempo deve ser um número inteiro'  , $calculadora->calcularJurosCompostos(1000, 0.2, 10.5));   //Tempo não inteiro
+        $this->assertEquals('Valores Inválidos'                                 , $calculadora->calcularJurosCompostos('a', 'a', 'a'));     //Capital inicial, taxa de juros e tempo string não numérica
+        $this->assertEquals('Valores não podem ser iguais ou menores que zero'  , $calculadora->calcularJurosCompostos(-1000, -0.2, -10));  //Capital inicial, taxa de juros e tempo negativos
+        $this->assertEquals('Valores não podem ser iguais ou menores que zero'  , $calculadora->calcularJurosCompostos(0, 0, 0));           //Capital inicial, taxa de juros e tempo zero
+        $this->assertEquals('Tempo deve ser um número inteiro'                  , $calculadora->calcularJurosCompostos(1000, 0.2, 10.5));   //Tempo não inteiro
     }
 
     public function testCalcularAmortizacaoSAC()
@@ -62,7 +62,7 @@ class CalculadoraFinanceiraTest extends TestCase
                 'Juros Mês 10' => 10,
                 'Juros Total' => 550
             ],
-            $calculadora->calcularAmortizacao(1000, 0.1, 10, 'SAC')
+            $calculadora->calcularAmortizacao(1000, 0.1, 10, 'SAC') // Amortização SAC
         );
     }
 
@@ -93,16 +93,17 @@ class CalculadoraFinanceiraTest extends TestCase
                 'Juros Mês 10' => 14.8,
                 'Juros Total' => 627.45
             ],
-            $calculadora->calcularAmortizacao(1000, 0.1, 10, 'Price')
+            $calculadora->calcularAmortizacao(1000, 0.1, 10, 'Price') // Amortização Price
         );
     }
 
     public function testCalcularAmortizacaoComValorInvalido()
     {
         $calculadora = new CalculadoraFinanceira();
-        $this->assertEquals('Tipo de Amortização Inválido'      , $calculadora->calcularAmortizacao(1000, 0.1, 10, 'teste'));       //Tipo de amortização errada
-        $this->assertEquals('Valores Inválidos'                 , $calculadora->calcularAmortizacao('a', 'a', 'a', 'Price'));       //Capital inicial, taxa de juros e tempo string não numérica
-        $this->assertEquals('Valores não podem ser negativos'   , $calculadora->calcularAmortizacao(-1000, -0.1, -10, 'SAC'));      //Capital inicial, taxa de juros e tempo negativos
-        $this->assertEquals('Tempo deve ser um número inteiro'  , $calculadora->calcularAmortizacao(1000, 0.1, 10.5, 'Price'));     //Tempo não inteiro
+        $this->assertEquals('Tipo de Amortização Inválido'                      , $calculadora->calcularAmortizacao(1000, 0.1, 10, 'teste'));       //Tipo de amortização errada
+        $this->assertEquals('Valores Inválidos'                                 , $calculadora->calcularAmortizacao('a', 'a', 'a', 'Price'));       //Capital inicial, taxa de juros e tempo string não numérica
+        $this->assertEquals('Valores não podem ser iguais ou menores que zero'  , $calculadora->calcularAmortizacao(-1000, -0.1, -10, 'SAC'));      //Capital inicial, taxa de juros e tempo negativos
+        $this->assertEquals('Valores não podem ser iguais ou menores que zero'  , $calculadora->calcularAmortizacao(0, 0, 0, 'Price'));             //Capital inicial, taxa de juros e tempo zero
+        $this->assertEquals('Tempo deve ser um número inteiro'                  , $calculadora->calcularAmortizacao(1000, 0.1, 10.5, 'Price'));     //Tempo não inteiro
     }
 }
