@@ -1,5 +1,56 @@
-Funcionalidade: testar o método addMethod do mock classe MyClass
+Funcionalidade: testar o método addMethod do mock da classe MyClass
 
     Cenário: Criar um mock da Classe MyClass e adicionar um método a ela
-        Dado que
+        Dado que tenho um mock da classe MyClass
+        Quando eu adicionar um método a ela com o método addMethod(['Teste', 'Teste2'])
+        Então os métodos 'Teste' e 'Teste2' devem existir na classe MyClass
 
+Funcionalidade: testar o método SetConstructorArgs do mock da classe MyClass
+
+    Cenário: Criar um mock da Classe MyClass e definir os argumentos do construtor
+        Dado que tenho um mock da classe MyClass
+        Quando eu definir os argumentos com o método SetConstructorArgs([1, 2, 3])
+        Então os argumentos 1, 2 e 3 devem existir na classe MyClass
+
+Funcionalidade: testar o método SetMockClassName do mock da classe MyClass
+
+    Cenário: Criar um mock da Classe MyClass e alterar seu nome
+        Dado que tenho um mock da classe MyClass
+        Quando eu alterar o nome da classe com o método SetMockClassName('MyMock')
+        Então o nome da classe deve ser 'MyMock'
+
+Funcionalidade: testar o método DisableOriginalConstructor do mock da classe MyClass
+
+    Cenário: Criar um mock da Classe MyClass e desabilitar o método __construct
+        Dado que tenho um mock da classe MyClass
+        Quando eu desabilitar o construtor original com o método DisableOriginalConstructor()
+        Então o construtor original da classe MyClass deve estar desabilitado
+        E o construtor original da classe MyClass não deve pedir que defina os argumentos
+
+Funcionalidade: testar o método DisableOriginalClone do mock da classe MyClass
+    
+    Cenário: Criar um mock da Classe MyClass e desabilitar o método __clone
+        Dado que tenho um mock da classe MyClass
+        Quando eu desabilitar o método clone com o método DisableOriginalClone()
+        Então o método clone da classe MyClass deve estar desabilitado
+
+Funcionalidade: testar o método DisableAutoload do mock da classe MyClass
+
+    Cenário: Criar um mock da Classe MyClass e desabilitar o método __autoload
+        Dado que tenho um mock da classe MyClass
+        Quando eu desabilitar o método __autoload com o método DisableAutoload()
+        Então o método __autoload da classe MyClass deve estar desabilitado
+
+Funcionalidade: testar o método MethodWillReturn do mock da classe MyClass
+
+    Cenário: Criar um mock da Classe MyClass e definir o que um método deve retornar
+        Dado que tenho um mock da classe MyClass
+        Quando eu definir o método addMethod para retornar 10 com o método MethodWillReturn('addMethod', 10)
+        Então o método 'addMethod' deve retornar 10
+
+Funcionalidade: testar o método MethodWillReturnSelf do mock da classe MyClass
+
+    Cenário: Criar um mock da Classe MyClass e definir um método para retornar a si mesmo
+        Dado que tenho um mock da classe MyClass
+        Quando eu definir o método addMethod para retornar a própria classe com o método MethodWillReturnSelf('addMethod')
+        Então o método 'addMethod' deve retornar a própria classe
