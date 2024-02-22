@@ -73,23 +73,30 @@ class CalculadoraFinanceira
             }
 
             $capitalAtual = $capital;
+            $jurosTotal = 0;
 
             if ($tipo == 'SAC') {
-                for ($i = 1; $i <= $tempo; $i++) {
-                    $amortizacao["Parcela de Amortização $i"] = $capital / $tempo;
+                for ($mes = 1; $mes <= $tempo; $mes++) {
+                    $amortizacao["Parcela de Amortização $mes"] = $capital / $tempo;
                     $juros = $capitalAtual * $taxa;
-                    $amortizacao["Juros Mês $i"] = $juros;
-                    $capitalAtual -= $amortizacao["Parcela de Amortização $i"];
+                    $amortizacao["Juros Mês $mes"] = $juros;
+                    $jurosTotal += $juros;
+                    $capitalAtual -= $amortizacao["Parcela de Amortização $mes"];
                 }
+
             } elseif ($tipo == 'Price') {
                 $parcela = $capital * (pow((1+$taxa), $tempo) * $taxa) / (pow((1+$taxa), $tempo) - 1);
-                for ($i = 1; $i <= $tempo; $i++) {
+                for ($mes = 1; $mes <= $tempo; $mes++) {
                     $juros = $capitalAtual * $taxa;
-                    $amortizacao["Parcela de Amortização $i"] = $parcela - $juros;
-                    $amortizacao["Juros Mês $i"] = $juros;
-                    $capitalAtual -= $amortizacao["Parcela de Amortização $i"];
+                    $amortizacao["Parcela de Amortização $mes"] = $parcela - $juros;
+                    $amortizacao["Juros Mês $mes"] = $juros;
+                    $jurosTotal += $juros;
+                    $capitalAtual -= $amortizacao["Parcela de Amortização $mes"];
                 }
+
             }
+
+            $amortizacao['Juros Total'] = $jurosTotal;
 
             foreach ($amortizacao as $key => $value) {
                 $amortizacao[$key] = round($value, 2);

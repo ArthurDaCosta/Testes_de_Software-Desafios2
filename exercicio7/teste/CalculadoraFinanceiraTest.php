@@ -59,7 +59,8 @@ class CalculadoraFinanceiraTest extends TestCase
                 'Parcela de Amortização 9' => 100,
                 'Juros Mês 9' => 20,
                 'Parcela de Amortização 10' => 100,
-                'Juros Mês 10' => 10
+                'Juros Mês 10' => 10,
+                'Juros Total' => 550
             ],
             $calculadora->calcularAmortizacao(1000, 0.1, 10, 'SAC')
         );
@@ -89,7 +90,8 @@ class CalculadoraFinanceiraTest extends TestCase
                 'Parcela de Amortização 9' => 134.5,
                 'Juros Mês 9' => 28.25,
                 'Parcela de Amortização 10' => 147.95,
-                'Juros Mês 10' => 14.8
+                'Juros Mês 10' => 14.8,
+                'Juros Total' => 627.45
             ],
             $calculadora->calcularAmortizacao(1000, 0.1, 10, 'Price')
         );
